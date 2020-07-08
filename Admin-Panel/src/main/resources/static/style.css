@@ -1,0 +1,73 @@
+body{
+	background-image: url('/images/bck.jpg');
+	background-size: cover;
+	repeat: no-repeat;
+}
+
+#add{
+    padding: 30px;
+    margin-left: 90px;
+    margin-top: 90px;
+    background-color: navy;
+    color: white;
+    font-size: 13px;
+    font-family: sans-serif;
+    border-radius: 2px;
+}
+
+#header{
+	text-align: center;
+	padding-top: 50px;
+    color: #11128F;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.text{
+	margin-left: 80px;
+    color: navy;
+    font-family: sans-serif;
+}
+
+.tableHead{
+	color: purple;
+	text-align: center;
+}
+
+.tableBody{
+	color: #6221A5;
+	text-align: center;
+}
+
+#save{
+    background-color: #350066;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+#save:hover {
+    opacity: 0.7;
+}
+
+#backToMain{
+	margin-left: 780px;
+}
+
+
+.button {
+     background-color: #F7D9F7;
+}
+
+input.button[type="text"]:hover {
+	opacity: 0.6;
+}
+
+#signout{
+	margin-left: 780px;
+}
+
+
+

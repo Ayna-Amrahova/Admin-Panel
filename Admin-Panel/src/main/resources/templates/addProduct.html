@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+	rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        	<link rel = "stylesheet" th:href="@{/style.css}"/>
+		
+		<title>Add Product</title>
+	</head>
+	<body >
+		<div class="container" style="background-image: url('access.denied.png')">
+			<h3 id="header">Add New Product:</h3>
+			<a th:href = "@{showFormForAllProduct}" id="backToMain" class="btn btn-success btn-md mb-3"> Back to main page </a>
+				<div class="row" >
+					<form class="text" th:action = "@{save}"  th:object = ${product} method="post">
+					<input type="hidden" th:field = "*{id}"/>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text" class="button" th:field = "*{categoryId}" id="form" required>Enter category id: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text" class="button"  th:field = "*{name}" id="form" required>Enter name: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text"  class="button"  th:field = "*{price}" id="form" required>Enter price: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text"   class="button" th:field = "*{actualPrice}" id="form" required>Enter actual price: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text" class="button"  th:field = "*{info}" id="form" required>Enter info: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text" class="button"  th:field = "*{imgPath}" id="form" required>Enter image path: </input>
+					<br><br>
+					<p th:if = "${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert -warning"> </p>
+					<input type="text" class="button"  th:field = "*{infoId}" id="form" required>Enter info id: </input>
+					<br><br>
+					<input type="submit" value="save" id="save"/>
+					</form>
+				</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Admin Panel</title>
+		<link rel = "stylesheet" th:href="@{/style.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	</head>
+	<body>
+		<div class="container">
+			<h3 id="header">Welcome to admin panel!</h3>
+			<br><br>
+		<form th:action= "@{/logout}" method= "post">
+        	<input type= "submit" id= "signout" class="btn btn-info btn-md mb-3" value= "Sign Out"/>
+        </form>
+				<table class="table table-hover table-bordered">
+					<thead class="tableHead">
+					<tr>
+						<th>FOR ADD NEW PRODUCT</th>
+					</tr>
+					</thead>
+						<tbody class="tableBody">
+						<tr>
+							<td>
+								<a th:href= "@{showFormForAddProduct}" id="update"
+									 class="btn btn-outline-primary btn-md mb-3">  Add New Product </a> 
+							</td>
+						</tr>
+						</tbody>
+				</table>
+			<br><br><br>
+				<table class="table table-hover table-bordered">
+					<thead class="tableHead">
+     					<tr>
+      			  	 		<th>ID</th>
+       						<th>NAME</th>
+        			 		<th>PRICE</th>
+        			 		<th>ACTUAL PRICE</th>
+        			 		<th>FOR UPDATE</th>
+        			 		<th>FOR DELETE</th>
+     			 		</tr>
+    				</thead>
+					<tbody class="tableBody">
+						<tr th:each = "product : ${products}">
+							<td th:utext  = "${product.id}" id="productId"></td>
+							<td th:utext  = "${product.name}"></td>
+							<td th:utext  = "${product.price}"></td>
+							<td th:utext  = "${product.actualPrice}"></td>
+							<td>
+							<a th:href= "@{showFormForUpdateProduct(productId=${product.id})}" 
+								class="btn btn-outline-primary  btn-md mb-3" id="update">  Update </a> 
+							</td>
+							<td>
+							<a th:href= "@{deleteById(id=${product.id})}" class="btn btn-outline-danger btn-md mb-3"
+								 onClick="if(!confirm('Are you sure you want to delete this?'))return false" id="delete">  Delete </a> 
+							</td>
+						</tr>
+				 	</tbody>
+			</table>
+		</div>
+	</body>
+	
+</html>
